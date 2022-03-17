@@ -36,21 +36,22 @@ public List<Person> listAllKeyword(String keyword) {
 
 # RUN
 
-application.properties ayarları için mysql’de vetapp database oluşturmanız ve username ve password kısmını girmeniz yeterli.
+Proje dizininde terminalden alttaki kodu çalıştırarak projeyi ayağa kaldırabilirsiniz.
 
+`./mvnw spring-boot:run`
+
+# H2
+
+H2 Java uygulamalarına gömülebilir veya istemci-sunucu modunda çalıştırabildiği için bunuda eklemek istedim. Ayarlar application.properties kısmına eklenmiştir. Tercih türüne göre iki veri tabanı yönetim sisteminden birini kullanabilirsiniz. 
+
+# MySQL
+
+Database kısmında MySQL kullanmak isterseniz ayarlar aşağıdaki kod bloğunda paylaştım. Gerekli bilgiler application.properties'de de mevcuttur. Hibernate sayesinde dto sınıfları ile veritabanına denk gelecek nesneler oluşturabilir ve üzerinde işlemler yapmamıza yardımcı olur.
 ```java
 spring.datasource.url=jdbc:mysql://localhost:3306/vetapp
 spring.datasource.username=root
 spring.datasource.password=password
 ```
-
-Proje dizininde terminalden alttaki kodu çalıştırarak projeyi ayağa kaldırabilirsiniz.
-
-`./mvnw spring-boot:run`
-
-# MySQL
-
-Database kısmında MySQL kullandım. Hibernate sayesinde dto sınıfları ile veritabanına denk gelecek nesneler oluşturabilir ve üzerinde işlemler yapmamıza yardımcı olur.
 
 ## **User Table**
 
