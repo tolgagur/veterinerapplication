@@ -119,3 +119,7 @@ Spring framework kullanılarak geliştirilen doğrulama, yetkilendirme, şifrele
 # Lombok
 
 Lombok, VetApp uygulamasını geliştirirken daha az ve daha temiz kod yazmamı sağlayan, okunabilirliği kolaylaştıran kütüphanedir. POJO’larda getter, setter gibi methodları annotationlar sayesinde daha okunaklı hale getiriyor.
+
+# Test
+
+JUnit kullanılarak JpaReUserRepository, PersonRepository, AnimalRepository birim testleri gerçekleştirilmiştir.
