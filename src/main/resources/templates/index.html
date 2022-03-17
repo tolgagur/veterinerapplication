@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            background: url(https://images.unsplash.com/photo-1467321440926-b06b94a6a167?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=1aaa58577d74d66a31636d2212b9e68a);
+            background-size: cover;
+            background-position: center;
+            font-family: Lato;
+            color: white;
+
+        }
+        #content {
+            text-align: center;
+            padding-top: 25%;
+            text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+            0px 8px 13px rgba(0,0,0,0.1),
+            0px 18px 23px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-weight: 700;
+            font-size: 5em;
+        }
+        html {
+            height: 100%;
+        }
+        hr {
+            width: 700px;
+            border-top: 1px solid #f8f8f8;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>VetApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">VetApp</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a th:href="@{/register}">Kayıt Ol <i class="fa fa-user-plus"></i></a></li>
+                <li><a th:href="@{/login}">Giriş Yap<i class="fa fa-user"></i></a></li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="content">
+                <h1>VetApp</h1>
+                <h3>Uygulamamıza Hoş Geldiniz</h3>
+                <hr>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+<script type=text/javascript src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

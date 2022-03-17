@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kişi Sayfası</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/topnav :: navbar">
+</div>
+<div class="container-fluid text-center">
+
+<!--    <div class="m-2">-->
+<!--        <a class="h3" th:href="@{/persons/new}">Kişi Ekle</a>-->
+<!--    </div>-->
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr class="font-weight-bold">
+                <td>Ad Soyad</td>
+                <td>İletişim Bilgileri</td>
+                <td>Telefon</td>
+                <td>Mail</td>
+                <td>İşlemler</td>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="persons : ${person}">
+                <tr>
+                    <td>[[${persons.nameSurname}]]</td>
+                    <td>[[${persons.contactinformation}]]</td>
+                    <td>[[${persons.telephone}]]</td>
+                    <td>[[${persons.email}]]</td>
+                    <td>
+                        <a class="h5 mr-3" th:href="@{'/persons/edit/' + ${persons.personId}}">Düzenle</a>
+                        <a class="h5 mr-3" th:href="@{'/persons/delete/' + ${persons.personId}}">Sil</a>
+                    </td>
+
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr class="font-weight-bold">
+                <!--                <td>id</td>-->
+                <td>İsim</td>
+                <td>Tür</td>
+                <td>Cins</td>
+                <td>Yaş</td>
+
+                <td>İşlem Yap</td>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="iterator : ${person.animals}">
+                <tr>
+                <td><a class="link-primary" th:href="@{'/animal/' + ${iterator.id}}"><span th:text=${iterator.name}></span></a></td>
+                <td><span th:text=${iterator.species}></span></td>
+                <td> <span th:text=${iterator.genus}></span></td>
+                <td><span th:text=${iterator.age}></span></td>
+                    <td>
+                        <a class="h5 mr-3" th:href="@{'/animals/edit/' + ${iterator.id}}">Düzenle</a>
+                        <a class="h5 mr-3" th:href="@{'/animals/delete/' + ${iterator.id}}">Sil</a>
+                    </td>
+
+
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+

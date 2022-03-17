@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/topnav :: navbar">
+</div>
+<div class="container-fluid text-center">
+    <!--    <div><h1>Animals Page</h1></div>-->
+    <!--    <div class="m-2">-->
+    <!--        <a class="h3" th:href="@{/animals/new}">Hayvan Ekle</a>-->
+    <!--    </div>-->
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr class="font-weight-bold">
+
+                <td>İsim</td>
+                <td>Tür</td>
+                <td>Cins</td>
+                <td>Yaş</td>
+                <td>Tanım</td>
+                <td>Sahip</td>
+                <td>İşlem Yap</td>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="animals : ${animal}">
+                <tr>
+                    <td>[[${animals.name}]]</td>
+                    <td>[[${animals.species}]]</td>
+                    <td>[[${animals.genus}]]</td>
+                    <td>[[${animals.age}]]</td>
+                    <td>[[${animals.description}]]</td>
+
+                    <td><th:block th:each="iterator : ${animal.person}">
+                        <p th:text=${iterator.nameSurname}></p>
+
+                    </th:block>
+                    </td>
+                    <td>
+                        <a class="h5 mr-3"  th:href="@{'/animals/edit/' + ${animals.id}}">Düzenle</a>
+                        <a class="h5 mr-3"   th:href="@{'/animals/delete/' + ${animals.id}}">Sil</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
