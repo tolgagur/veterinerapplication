@@ -123,4 +123,4 @@ Lombok, VetApp uygulamasını geliştirirken daha az ve daha temiz kod yazmamı 
 
 # Test
 
-JUnit kullanılarak JpaReUserRepository, PersonRepository, AnimalRepository birim testleri gerçekleştirilmiştir.
+JUnit kullanılarak UserRepository, PersonRepository, AnimalRepository birim testleri gerçekleştirilmiştir.
