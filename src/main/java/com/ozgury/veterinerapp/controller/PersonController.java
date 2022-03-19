@@ -2,6 +2,7 @@ package com.ozgury.veterinerapp.controller;
 
 import com.ozgury.veterinerapp.dto.Person;
 import com.ozgury.veterinerapp.exception.UserNotFoundException;
+import com.ozgury.veterinerapp.service.IPersonService;
 import com.ozgury.veterinerapp.service.impl.AnimalServiceImpl;
 import com.ozgury.veterinerapp.service.impl.PersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ import java.util.Optional;
 public class PersonController {
 
     @Autowired
-    private PersonServiceImpl personService;
+    private IPersonService personService;
 
     @GetMapping("/persons")
     public String showPersonList(Model model, @Param("keyword") String keyword) {

@@ -3,6 +3,7 @@ package com.ozgury.veterinerapp.controller;
 import com.ozgury.veterinerapp.dto.Person;
 import com.ozgury.veterinerapp.dto.user.User;
 import com.ozgury.veterinerapp.repository.UserRepository;
+import com.ozgury.veterinerapp.service.IUserService;
 import com.ozgury.veterinerapp.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,7 +22,7 @@ public class UserController {
    
 
     @Autowired
-    private UserServiceImpl userService;
+    private IUserService userService;
 
     @Autowired
     private BCryptPasswordEncoder encoder;
@@ -43,7 +44,7 @@ public class UserController {
         user.setPassword(encoder.encode(user.getPassword()));
         user.setRole("ROLE_USER");
         userService.save(user);
-        ra.addFlashAttribute("message", "User kayıt oldu.");
+        ra.addFlashAttribute("message", "Kayıt başarılı.");
         return "redirect:/login";
     }
 

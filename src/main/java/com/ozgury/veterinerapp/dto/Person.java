@@ -9,6 +9,9 @@ import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +28,20 @@ public class Person {
     private Long personId;
 
     @Field(index = Index.YES, analyze = Analyze.NO)
+    @NotBlank
+    @Size(min = 1, message = "1 karakterden az olamaz")
     private String nameSurname;
 
+    @NotBlank
+    @Size(min = 1, message = "1 karakterden az olamaz")
     private String contactinformation;
 
+    @NotBlank
     private String telephone;
 
     @Column(unique = true)
+    @NotBlank
+    @Email(regexp = "[a-zA-Z0-9_]+@[a-zA-Z0-9]+\\.[a-zA-Z]+", message = "email formatinda değil")
     private String email;
 
     @Column(name = "date")

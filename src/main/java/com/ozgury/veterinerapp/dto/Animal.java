@@ -11,6 +11,7 @@ import org.springframework.data.annotation.LastModifiedBy;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,14 +29,23 @@ public class Animal {
     private Long id;
 
     @Field(index = Index.YES, analyze = Analyze.NO)
+    @NotBlank
+    @Size(min = 1, message = "1 karakterden az olamaz")
     private String name;
 
+    @NotBlank
+    @Size(min = 1, message = "1 karakterden az olamaz")
     private String species;
 
+    @NotBlank
+    @Size(min = 1, message = "1 karakterden az olamaz")
     private String genus;
 
+    @NotBlank
     private String age;
 
+    @NotBlank
+    @Size(min = 1, message = "1 karakterden az olamaz")
     private String description;
 
     @Column(name = "date")
