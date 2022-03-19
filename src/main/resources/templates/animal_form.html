@@ -4,66 +4,75 @@
     <meta charset="UTF-8">
     <title>[[${pageTitle}]]</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div th:replace="fragments/topnav :: navbar">
 </div>
-<div class="container-fluid">
-<!--    <div class="text-center"><h2>[[${pageTitle}]]</h2></div>-->
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="row">
+                    <div class="col text-center">
+                        <h1>Hayvan Ekle</h1>
 
-    <form th:action="@{/animals/save}" method="post" th:object="${animal}" style="max-width: 500px; margin: 0 auto;">
-        <input type="hidden" th:field="*{id}">
-
-        <div class="border border-secondary rounded p-3" >
-            <div class="form-group">
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{name}" class="form-control" required  maxlength="45"  placeholder="İsim"/>
+                    </div>
                 </div>
+                <form form th:action="@{/animals/save}" method="post" th:object="${animal}" >
+                    <input type="hidden" th:field="*{id}">
+                    <div class="row align-items-center">
+                        <div class="col mt-4">
+                            <input type="text" th:field="*{name}" class="form-control" required  maxlength="45" placeholder="İsim"/>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <input type="text"  th:field="*{species}" class="form-control" required  maxlength="45" placeholder="Tür"/>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <input type="text" th:field="*{genus}" class="form-control" required  maxlength="45" placeholder="Cins"/>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <input type="number" th:field="*{age}" class="form-control" required  min="0" maxlength="45" placeholder="Yaş"/>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <textarea type="text" th:field="*{description}"  class="form-control" rows="2" required minlength="5" maxlength="45"  placeholder="Tanım"/>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <select th:field="*{person}" class="form-control">
+                                <!--                        <option th:value="Sahipsiz" th:text="Sahipsiz">-->
+                                <option th:each="p : ${personName}" th:value="${p.personId}" th:text="${p.nameSurname}" />
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="row justify-content-start mt-4">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary mt-4">Kaydet</button>
+                            <button type="submit" class="btn btn-secondary mt-4" onclick="cancelForm()">İptal</button>
+                        </div>
+
+                    </div>
+                </form>
             </div>
 
-            <div class="form-group">
-                <div class="col-sm-8">
-                    <input type="text"  th:field="*{species}" class="form-control" required  maxlength="45" placeholder="Tür"/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{genus}" class="form-control" required  maxlength="45" placeholder="Cins"/>
-                </div>
-            </div>
-
-            <div class="form-group">
-
-                <div class="col-sm-8">
-                    <input type="number" th:field="*{age}" class="form-control" required  min="0" maxlength="45" placeholder="Yaş"/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-8">
-                    <textarea type="text" th:field="*{description}" class="form-control" rows="2" required minlength="5" maxlength="45" placeholder="Tanım"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-8">
-                    <select th:field="*{person}" class="form-control">
-<!--                        <option th:value="Sahipsiz" th:text="Sahipsiz">-->
-                        <option th:each="p : ${personName}" th:value="${p.personId}" th:text="${p.nameSurname}" />
-
-                    </select>
-
-                </div>
-            </div>
-
-            <div class="form-center">
-                <button type="submit" class="btn btn-primary m-2">Kayıt</button>
-                <button type="submit" class="btn btn-secondary m-2" onclick="cancelForm()">İptal</button>
-
-            </div>
         </div>
-    </form>
-</div>
+    </div>
+</section>
 <script type="text/javascript">
     function cancelForm(){
         window.location = "[[@{persons}]]";
