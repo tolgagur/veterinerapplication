@@ -93,8 +93,9 @@ Hayvan tanımı için karşılık gelen alanlar tür, cins, isim, yaş, açıkla
 
 Thymeleaf görünüm katmanını kullanırken tasarımın daha düzgün gözükmesi için Bootstrap kullanmam gerekti. Kayıtlı kullanıcılar hayvan sahibi ve hayvan ekleyebilir. Düzenleme ve silme işlemlerini de kayıtlı kullanıcılar yapabilir. Hayvan sahibi ve hayvanların bilgilerini de kayıtlı kullanıcılar görüntüleyebilir. Giriş yapmayan kullanıcılar sadece `/`, `/register` ve `/login` sayfalarında dolaşma imkanı var. Giriş yaptıktan sonra diğer sayfalara erişim kazanır.
 
-| / | Index sayfası |
+| URL | Amacı |
 | --- | --- |
+| / | Index sayfası |
 | /register | Kullanıcının kayıt olacağı sayfa |
 | /login | Kullanıcının giriş yapabileceği sayfa |
 | /persons | Bütün hayvan sahiplerinin listelendiği alan.  |
